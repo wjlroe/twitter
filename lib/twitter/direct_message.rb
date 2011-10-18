@@ -8,11 +8,13 @@ module Twitter
     attr_reader :id, :recipient, :sender, :text
 
     def initialize(direct_message={})
-      @created_at = direct_message['created_at']
-      @id = direct_message['id']
-      @recipient = Twitter::User.new(direct_message['recipient']) unless direct_message['recipient'].nil?
-      @sender = Twitter::User.new(direct_message['sender']) unless direct_message['sender'].nil?
-      @text = direct_message['text']
+      if recipient = direct_message.delete('recipient')
+        @recipient = Twitter::User.new(recipient)
+      end
+      if sender = direct_message.delete('sender')
+        @sender = Twitter::User.new(sender)
+      end
+      super(direct_message)
     end
 
     def ==(other)

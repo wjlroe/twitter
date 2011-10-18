@@ -6,8 +6,13 @@ module Twitter
     attr_reader :source, :target
 
     def initialize(relationship={})
-      @source = Twitter::User.new(relationship['source']) unless relationship['source'].nil?
-      @target = Twitter::User.new(relationship['target']) unless relationship['target'].nil?
+      if source = relationship.delete('source')
+        @source = Twitter::User.new(source)
+      end
+      if target = relationship.delete('target')
+        @target = Twitter::User.new(target)
+      end
+      super(relationship)
     end
 
   end
