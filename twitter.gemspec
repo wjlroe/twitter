@@ -18,8 +18,8 @@ Gem::Specification.new do |gem|
   gem.email = ['nunemaker@gmail.com', 'wynn.netherland@gmail.com', 'sferik@gmail.com', 'steve.richert@gmail.com']
   gem.executables = `git ls-files -- bin/*`.split("\n").map{|f| File.basename(f)}
   gem.files = `git ls-files`.split("\n")
-  gem.homepage = 'https://github.com/jnunemaker/twitter'
-  gem.name = 'twitter'
+  gem.homepage = 'https://github.com/wjlroe/twitter'
+  gem.name = 'twitter-dsci'
   gem.require_paths = ['lib']
   gem.required_rubygems_version = Gem::Requirement.new('>= 1.3.6')
   gem.summary = %q{Twitter API wrapper}
